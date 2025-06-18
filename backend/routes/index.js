@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
+// Importar rutas
+const taskRoutes = require('./taskRoutes');
+
 // Ruta de prueba
 router.get('/health', (req, res) => {
   res.status(200).json({
@@ -11,16 +14,7 @@ router.get('/health', (req, res) => {
   });
 });
 
-// Ruta de ejemplo
-router.get('/test', (req, res) => {
-  res.json({
-    message: 'Endpoint de prueba',
-    data: {
-      backend: 'Express',
-      database: 'PostgreSQL',
-      orm: 'Sequelize'
-    }
-  });
-});
+// Rutas de tareas
+router.use('/tasks', taskRoutes);
 
 module.exports = router;

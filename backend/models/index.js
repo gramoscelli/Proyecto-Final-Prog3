@@ -19,7 +19,11 @@ const sequelize = new Sequelize(
   }
 );
 
+// Importar modelos
+const Task = require('./task')(sequelize, Sequelize.DataTypes);
+
 module.exports = {
   sequelize,
-  Sequelize
+  Sequelize,
+  Task
 };
